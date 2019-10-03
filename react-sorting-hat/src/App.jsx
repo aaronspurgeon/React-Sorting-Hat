@@ -4,7 +4,7 @@ import Welcome from './Components/Welcome';
 import './App.css';
 import Questions from './Components/Questions';
 
-const App = () => {
+function App() {
     return (
       <div className="App">
         <Route exact path='/' component={Welcome}/>

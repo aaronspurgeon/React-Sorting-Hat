@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import data from '../data';
 import QuestionsList from './QuestionsList';
 
 
-function Questions()  {
-    const [data, setData] = useState({data})
+class Questions extends Component {
+    constructor() {
+        super();
+        this.state = {
+            data: data
+        }
+    }
+    render() {
         return (
             <div className='questionsDiv'>
-                {data.map(item => (
+                {this.state.data.map(item => (
                     <QuestionsList
                         key={item.id}
                         item={item}
@@ -15,7 +21,7 @@ function Questions()  {
                 ))}
             </div>
         )
-    
+    }
 }
 
 export default Questions;

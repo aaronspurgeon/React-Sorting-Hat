@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
-import Answers from './AnswersList';
+import React from 'react';
+
 
 const QuestionsList = (props) => {
-    console.log(props)
-    const [answers, setAnswer] = useState(props.item.answers)
+
     return (
         <div>
             <h2>{props.item.question}</h2>
-            {answers.map(item => (
-                <Answers key={item.id} item={item} />
-            ))}
+            <form>
+                {props.item.answers.map(item => {
+                    return (
+                        <>
+                            <input type="checkbox" name={item.id} value={item} />
+                            <label htmlFor={item.id}>{item}</label>
+                        </>
+                    )
+                })}
+            </form>
         </div>
     )
 }
